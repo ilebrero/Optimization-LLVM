@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nacho/Documentos/LLVM/course2/ex/Runtime/InstrumentValuesRuntime.cpp
+cstdint
+-
+cstdio
+-
+cstdlib
+-
+
