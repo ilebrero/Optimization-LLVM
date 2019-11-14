@@ -4,7 +4,8 @@
 // RUN: %FileCheck %s < %t.out
 //
 // CHECK: model 
-// CHECK: x -> #x0002
+// CHECK: x 
+// CHECK: #x0002
 #include <stdint.h>
 
 uint64_t __attribute__((section("solve.eq.0"))) polynome(uint16_t x) {

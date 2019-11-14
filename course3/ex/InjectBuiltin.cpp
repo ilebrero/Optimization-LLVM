@@ -10,6 +10,17 @@
 
 using namespace llvm;
 
+// Usar esto
+// CCode es el codigo a injectar
+// M el modulo donde se quiere injectar
+
+// En gidra se puede ver el ptero de ejecucion que va a init array y se puede ver si en init esta injectado ptrace o algo asi
+// Para builear: se genera un builtin.h que tiene los checks antidebug
+// Builtins.h se genera con builtins.py
+// Ej: "detect_ptrace" | detecta gdb usando ptrace | toma 
+// Los cheqcks dan 0 si esta todo bien | 1 si no.
+// Los tests imprimen algo, lo ejecutan como siempre. Otra cosa es correr la app con gdb para detectarlo
+
 llvm::Function* InjectBuiltin(llvm::StringRef const CCode, llvm::Module &M, 
                               llvm::StringRef const FName) {
   if(Function *F = M.getFunction(FName))

@@ -4,6 +4,8 @@
 // RUN: %FileCheck %s < %t.out
 //
 // CHECK: model 
+// CHECK-DAG: %call 
+// CHECK-DAG argc
 
 #include <stdio.h>
 

@@ -203,8 +203,7 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //No help, variable specified on the command line.
 LLVM_DIR:UNINITIALIZED=/home/nacho/Documentos/LLVM/_build/../_deps/llvm/lib/cmake/llvm
 
-//Where can one of the python3.8, python3, python, ipy64 or ipy
-// libraries be found
+//Path to a program.
 Python_EXECUTABLE:FILEPATH=/home/nacho/anaconda3/bin/python3.6
 
 //No help, variable specified on the command line.

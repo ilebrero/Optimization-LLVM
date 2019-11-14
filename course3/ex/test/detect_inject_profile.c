@@ -1,16 +1,15 @@
 // RUN: %clang %s -O2 -fprofile-instr-generate -o %t.instr
-// RUN: rm -fr %t.profile_dir 
+// RUN: rm -fr %t.profile.dir 
 //
 // fuzz !
-// RUN: LLVM_PROFILE_FILE="%t.profile.dir/code-\%p.profraw" %t.instr
-// RUN: LLVM_PROFILE_FILE="%t.profile.dir/code-\%p.profraw" %t.instr
-// RUN: LLVM_PROFILE_FILE="%t.profile.dir/code-\%p.profraw" %t.instr
+// RUN: LLVM_PROFILE_FILE="%t.profile.dir/code-%%p.profraw" %t.instr
+// RUN: LLVM_PROFILE_FILE="%t.profile.dir/code-%%p.profraw" %t.instr
+// RUN: LLVM_PROFILE_FILE="%t.profile.dir/code-%%p.profraw" %t.instr
 //
-// %llvm_tools_dir/llvm-profdata merge -output=%t.profdata %t.profile.dir/code-*.profraw
+// RUN: %llvm_tools_dir/llvm-profdata merge -output=%t.profdata %t.profile.dir/code-*.profraw
 //
 // RUN: %clang %s -fprofile-instr-use=%t.profdata -S -emit-llvm -o %t.ll
 // RUN: %opt %t.ll -S -load %lib_antidebug -anti-debug -startup=false -inject=true -o %t.inject.ll
-// RUN: %FileCheck %s < %t.inject.ll
 //
 // RUN: %clang -O2 %t.inject.ll -o %t
 // RUN: %t

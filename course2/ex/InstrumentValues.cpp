@@ -36,14 +36,13 @@ Function* GetInsturmentFunction(Module &M) {
 
   Type* ReturnType = Type::getVoidTy(C);
 
-  //is var args????
   FunctionType* Aridad = FunctionType::get(ReturnType, Arguments, true);
   Function* InstrumentValue = Function::Create(Aridad, llvm::GlobalValue::LinkageTypes::ExternalLinkage, "__instrument_value", &M);
 
   // F = Function::Create(FunctionType::, LinkageType::ExternalLinkage )
   // TODO Create the declaration of the __instrument_value function
-  // see FunctionType::Create, Function::Create
-  // use ExternalLinkage for the created function ! The type must respect the type of the definition at Runtime/InstrumentValuesRuntime.cpp 
+  // See FunctionType::Create, Function::Create
+  // Use ExternalLinkage for the created function ! The type must respect the type of the definition at Runtime/InstrumentValuesRuntime.cpp 
   return InstrumentValue;
 } 
 

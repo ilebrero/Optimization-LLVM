@@ -13,6 +13,7 @@ using namespace llvm;
 
 namespace {
 
+// takes a value V and returns its z3 representation
 z3::expr getValueFor(z3::context &Z3, Value* V, std::map<Value*, z3::expr> &Inst2Cond) {
 
   auto Inst = Inst2Cond.find(V);
@@ -43,12 +44,14 @@ z3::expr getValueFor(z3::context &Z3, Value* V, std::map<Value*, z3::expr> &Inst
   return Z3.bv_val(0U, std::max<unsigned>(V->getType()->getPrimitiveSizeInBits(), 1));
 }
 
-// this function would be only called for i1
+// this function should be only called for i1
 z3::expr getBoolValueFor(z3::context &Z3, Value* V, std::map<Value*, z3::expr> &Inst2Cond) {
+  assert(V->getType()->isIntegerTy() && V->getType()->getScalarSizeInBits() == 1);
   z3::expr VExpr = getValueFor(Z3, V, Inst2Cond);
   return VExpr == Z3.bv_val(1, 1);
 }
 
+// maps an instruction to a z3 formula 
 void Inst2Z3(z3::context &Z3, Instruction &I, std::map<Value*, z3::expr> &Inst2Cond, std::map<BasicBlock*, z3::expr> &BB2Cond) {
   Type* T = I.getType();
 
@@ -125,10 +128,11 @@ void Inst2Z3(z3::context &Z3, Instruction &I, std::map<Value*, z3::expr> &Inst2C
 
   if(SelectInst* S = dyn_cast<SelectInst>(&I)) {
     // TODO: Create the expression for the select instruction. Use the z3::ite function.
+    // Use z3::ite (IfThenElse). It takes a boolean condition, a true-case formula and a false-case formula
   }
 
   if(PHINode* PHI = dyn_cast<PHINode>(&I)) {
-    // TODO Create the expression for the phi-nodes. Remember that the condition of the incomming block must be taken into account.
+    // TODO Create the expression for the phi-nodes. The condition of the incoming block must be taken into account.
     // Again, use the z3::ite
   }
 
@@ -146,6 +150,8 @@ z3::expr getPathCondition(z3::context &Z3, BasicBlock &From, BasicBlock &To,
   if(BranchInst* Br = dyn_cast<BranchInst>(Term)) {
     if(Br->isUnconditional()) {
       // TODO If it is an unconditional branch, always taken
+      // See BranchInst::getCondition()
+      // See BranchInst::getSuccessor()
     } else {
       Value* Cond = Br->getCondition();
       // TODO If it is a conditional branch, depends if B is the true branch or the false branch (or both !) 
@@ -153,6 +159,8 @@ z3::expr getPathCondition(z3::context &Z3, BasicBlock &From, BasicBlock &To,
   }
   else if(SwitchInst* Sw = dyn_cast<SwitchInst>(Term)) {
     // TODO If it is a switch, it may be the default (SwitchInst::getDefaultDest) or some of the cases
+    // see SwitchInst::getDefaultDest() SwitchInst::getCondition() and SwitchInst::cases() 
+    // see also SwitchInst::CaseIt::getCaseValue() and SwitchInst::CaseIt::getCaseSuccessor()
   }
 
   return BrCond && BB2Cond.find(&From)->second; // the condition of from->to is the condition to take the edge plus the condition to reach from 
@@ -182,10 +190,9 @@ std::pair<std::map<Value*, z3::expr>, std::map<BasicBlock*, z3::expr>> Function2
     // get the condition to reach B: 
     // * B is the entry, 
     // * or is reachable by a predecessor P. For every P, consider the path condition from P->B (te getPathCondition function)
-    // TODO Get the condition  
     z3::expr BCond = Z3.bool_val(B == Entry); 
     for(BasicBlock *P : predecessors(B)) {
-      // Complete here BCond = ...
+      BCond = BCond || getPathCondition(Z3, *P, *B, Inst2Cond, BB2Cond); 
     }
     BB2Cond.insert({B, BCond});
 
