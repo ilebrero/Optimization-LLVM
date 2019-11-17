@@ -203,7 +203,8 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //No help, variable specified on the command line.
 LLVM_DIR:UNINITIALIZED=/home/nacho/Documentos/LLVM/_build/../_deps/llvm/lib/cmake/llvm
 
-//Path to a program.
+//Where can one of the python3.8, python3, python, ipy64 or ipy
+// libraries be found
 Python_EXECUTABLE:FILEPATH=/home/nacho/anaconda3/bin/python3.6
 
 //No help, variable specified on the command line.
@@ -211,6 +212,9 @@ Z3_EXECUTABLE:UNINITIALIZED=/home/nacho/Documentos/LLVM/_build/../_deps/z3/bin/z
 
 //No help, variable specified on the command line.
 Z3_INCLUDE_DIR:UNINITIALIZED=/home/nacho/Documentos/LLVM/_build/../_deps/z3/include
+
+//Path to a library.
+Z3_LIBRARIES:FILEPATH=Z3_LIBRARIES-NOTFOUND
 
 //Value Computed by CMake
 course_uba_BINARY_DIR:STATIC=/home/nacho/Documentos/LLVM/_build
@@ -321,7 +325,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=20
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=19
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

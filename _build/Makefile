@@ -352,58 +352,6 @@ install-AntiDebug-stripped/fast:
 .PHONY : install-AntiDebug-stripped/fast
 
 #=============================================================================
-# Target rules for targets named install-Function2Z3
-
-# Build rule for target.
-install-Function2Z3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 install-Function2Z3
-.PHONY : install-Function2Z3
-
-# fast build rule for target.
-install-Function2Z3/fast:
-	$(MAKE) -f course4/ex/CMakeFiles/install-Function2Z3.dir/build.make course4/ex/CMakeFiles/install-Function2Z3.dir/build
-.PHONY : install-Function2Z3/fast
-
-#=============================================================================
-# Target rules for targets named Function2Z3
-
-# Build rule for target.
-Function2Z3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Function2Z3
-.PHONY : Function2Z3
-
-# fast build rule for target.
-Function2Z3/fast:
-	$(MAKE) -f course4/ex/CMakeFiles/Function2Z3.dir/build.make course4/ex/CMakeFiles/Function2Z3.dir/build
-.PHONY : Function2Z3/fast
-
-#=============================================================================
-# Target rules for targets named install-Function2Z3-stripped
-
-# Build rule for target.
-install-Function2Z3-stripped: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 install-Function2Z3-stripped
-.PHONY : install-Function2Z3-stripped
-
-# fast build rule for target.
-install-Function2Z3-stripped/fast:
-	$(MAKE) -f course4/ex/CMakeFiles/install-Function2Z3-stripped.dir/build.make course4/ex/CMakeFiles/install-Function2Z3-stripped.dir/build
-.PHONY : install-Function2Z3-stripped/fast
-
-#=============================================================================
-# Target rules for targets named Trace2Z3
-
-# Build rule for target.
-Trace2Z3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Trace2Z3
-.PHONY : Trace2Z3
-
-# fast build rule for target.
-Trace2Z3/fast:
-	$(MAKE) -f course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/build.make course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/build
-.PHONY : Trace2Z3/fast
-
-#=============================================================================
 # Target rules for targets named install-WhiteboxMe
 
 # Build rule for target.
@@ -442,6 +390,45 @@ install-WhiteboxMe-stripped/fast:
 	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/build
 .PHONY : install-WhiteboxMe-stripped/fast
 
+#=============================================================================
+# Target rules for targets named install-Function2Z3
+
+# Build rule for target.
+install-Function2Z3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 install-Function2Z3
+.PHONY : install-Function2Z3
+
+# fast build rule for target.
+install-Function2Z3/fast:
+	$(MAKE) -f course4/ex/CMakeFiles/install-Function2Z3.dir/build.make course4/ex/CMakeFiles/install-Function2Z3.dir/build
+.PHONY : install-Function2Z3/fast
+
+#=============================================================================
+# Target rules for targets named Function2Z3
+
+# Build rule for target.
+Function2Z3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Function2Z3
+.PHONY : Function2Z3
+
+# fast build rule for target.
+Function2Z3/fast:
+	$(MAKE) -f course4/ex/CMakeFiles/Function2Z3.dir/build.make course4/ex/CMakeFiles/Function2Z3.dir/build
+.PHONY : Function2Z3/fast
+
+#=============================================================================
+# Target rules for targets named install-Function2Z3-stripped
+
+# Build rule for target.
+install-Function2Z3-stripped: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 install-Function2Z3-stripped
+.PHONY : install-Function2Z3-stripped
+
+# fast build rule for target.
+install-Function2Z3-stripped/fast:
+	$(MAKE) -f course4/ex/CMakeFiles/install-Function2Z3-stripped.dir/build.make course4/ex/CMakeFiles/install-Function2Z3-stripped.dir/build
+.PHONY : install-Function2Z3-stripped/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -469,13 +456,12 @@ help:
 	@echo "... course3-gen-builtin"
 	@echo "... install-AntiDebug"
 	@echo "... install-AntiDebug-stripped"
-	@echo "... install-Function2Z3"
-	@echo "... Function2Z3"
-	@echo "... install-Function2Z3-stripped"
-	@echo "... Trace2Z3"
 	@echo "... install-WhiteboxMe"
 	@echo "... WhiteboxMe"
 	@echo "... install-WhiteboxMe-stripped"
+	@echo "... install-Function2Z3"
+	@echo "... Function2Z3"
+	@echo "... install-Function2Z3-stripped"
 .PHONY : help
 
 

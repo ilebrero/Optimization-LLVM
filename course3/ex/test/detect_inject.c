@@ -1,6 +1,6 @@
 // RUN: %clang %s -S -emit-llvm -o %t.ll
 // RUN: %opt %t.ll -S -load %lib_antidebug -anti-debug -startup=false -inject=true -o %t.inject.ll
-
+// RUN: %FileCheck %s < %t.inject.ll
 //
 // RUN: %clang -O2 %t.inject.ll -o %t
 // RUN: %t

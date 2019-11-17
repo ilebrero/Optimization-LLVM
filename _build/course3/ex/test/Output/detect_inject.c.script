@@ -1,5 +1,0 @@
-set -o pipefail;{ : 'RUN: at line 1';   /home/nacho/Documentos/LLVM/_deps/llvm/bin/clang /home/nacho/Documentos/LLVM/course3/ex/test/detect_inject.c -S -emit-llvm -o /home/nacho/Documentos/LLVM/_build/course3/ex/test/Output/detect_inject.c.tmp.ll; } &&
-{ : 'RUN: at line 2';   /home/nacho/Documentos/LLVM/_deps/llvm/bin/opt /home/nacho/Documentos/LLVM/_build/course3/ex/test/Output/detect_inject.c.tmp.ll -S -load /home/nacho/Documentos/LLVM/_build/course3/ex/test/../libAntiDebug.so -anti-debug -startup=false -inject=true -o /home/nacho/Documentos/LLVM/_build/course3/ex/test/Output/detect_inject.c.tmp.inject.ll; } &&
-{ : 'RUN: at line 5';   /home/nacho/Documentos/LLVM/_deps/llvm/bin/clang -O2 /home/nacho/Documentos/LLVM/_build/course3/ex/test/Output/detect_inject.c.tmp.inject.ll -o /home/nacho/Documentos/LLVM/_build/course3/ex/test/Output/detect_inject.c.tmp; } &&
-{ : 'RUN: at line 6';   /home/nacho/Documentos/LLVM/_build/course3/ex/test/Output/detect_inject.c.tmp; } &&
-{ : 'RUN: at line 7';   ! gdb --return-child-result --eval-command="run" --eval-command="q" /home/nacho/Documentos/LLVM/_build/course3/ex/test/Output/detect_inject.c.tmp; }

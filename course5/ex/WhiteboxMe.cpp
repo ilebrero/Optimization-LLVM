@@ -19,6 +19,10 @@ using namespace llvm;
 
 namespace {
 
+// Ver arith.c.tmp.obf | crc8.c.tmp.o | crc8.c.tmp.obf.ll
+
+// getmPointer: calcula el ptr que contiene la posicion de la tabla
+// Toma la tabla y los indices a los que va a acceder
 unsigned constexpr ipow(unsigned x, unsigned i) {
   if(i == 0)
     return 1;
@@ -177,18 +181,85 @@ class Whitebox {
 Instruction* WhitenInstr(Whitebox& WB, Instruction &I, BasicBlock &InsertAt, SmallPtrSetImpl<Instruction*> &Tabulated, ValueToValueMapTy &VMap) {
   IRBuilder<> Builder(&InsertAt);
   Instruction *New;
+
   if(WB.CanTabulate(I)) {
     Tabulated.insert(&I);  
+    std::vector<Value*> EncodedValues;
+
+    // El primero es 0
+    EncodedValues.push_back(ConstantInt::get(Type::getInt8Ty(I.getContext()), 0));
+
+    for (Value* Operand : I.operands()) {
+      if (Instruction* OperandInst = dyn_cast<Instruction>(Operand)) {
+        
+        if (Tabulated.count(OperandInst) == 0) {
+          //Pasar el OperandInst por Vmap.
+          EncodedValues.push_back(Encode(Builder, *Operand));
+        } else {
+          EncodedValues.push_back(VMap[OperandInst]);
+        }
+
+      } else {
+
+        if (!VMap[Operand]) {
+          EncodedValues.push_back(Operand);
+        } else {
+          EncodedValues.push_back(Encode(Builder, VMap[Operand]));
+        }
+
+      }
+    }
+
+    // La lista de indices hay que castearlos a enteros mas grandes (int 8 o int 16) y sin singo
+    for (int i = 0; i < EncodedValues.size(); ++i) {
+      EncodedValues[i] = Builder.CreateIntCast(EncodedValues[i], Type::getInt8Ty(I.getContext()), false);
+    }
+
     // TODO Create an access to the corresponding table. Be careful, if the operands is not already encoded it must be encoded 
     //   Use the GetElementPtr instruction to calculate the element on the offset (IRBuilder<>::CreateGEP). 
     //   The first operand must be 0 and the rest must be the encoded operands 
-    //   Add instruction to Tabulate
+    GlobalVariable* InstructionTable = GetTable(I);
+    Value* InstrPtr = Builder.CreateGEP(InstructionTable, EncodedValues, "Operate");
+    New = Builder.CreateLoad(InstrPtr, "Operate_" + I.getName());
+
+    //New en tabulate?
   } else {
+    New = I.clone();
+    std::vector<Value*> DecodedValues;
+
+    for (Use* Operand : I.operands()) {
+      // sacar el valor con getValue
+      Value CopyVal(*Operand);   
+      if (Instruction* OperandInst = dyn_cast<Instruction>(CopyVal)) {
+        
+        if (Tabulated.count() > 0) {
+          Value* DecodedVal = Decode(Builder, *Operand);
+          Value DecodedCopy(DecodedVal);
+
+          DecodedValues.push_back(&DecodedCopy);
+        } else {
+          DecodedValues.push_back(CopyVal);
+        }
+
+      } else {
+        
+        if (!VMap[CopyVal]) {
+          DecodedValues.push_back(CopyVal);
+        } else {
+          Value* DecodedVal = Decode(Builder, *Operand);
+          Value DecodedCopy(DecodedVal);
+
+          DecodedValues.push_back(&DecodedCopy);
+        }
+      }
+    }
     // TODO Clone the instruction using Instruction::clone 
     //   If the operand is encoded it must be decoded
     //   Remember to fix the operands of the cloned instruction (they point to the ones in the original function)
     //   Remember to add the instruction to the basicblock IRBuilder<>::Insert 
   }
+
+  builder.InsertAfter(New);
   VMap[&I] = New;
   return New; 
 }

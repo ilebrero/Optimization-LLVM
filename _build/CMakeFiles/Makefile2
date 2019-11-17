@@ -68,8 +68,8 @@ clean: course0/clean
 clean: course1/clean
 clean: course2/clean
 clean: course3/clean
-clean: course4/clean
 clean: course5/clean
+clean: course4/clean
 
 .PHONY : clean
 
@@ -646,7 +646,7 @@ course3/ex/CMakeFiles/AntiDebug.dir/clean:
 course3/ex/CMakeFiles/course3-gen-builtin.dir/all:
 	$(MAKE) -f course3/ex/CMakeFiles/course3-gen-builtin.dir/build.make course3/ex/CMakeFiles/course3-gen-builtin.dir/depend
 	$(MAKE) -f course3/ex/CMakeFiles/course3-gen-builtin.dir/build.make course3/ex/CMakeFiles/course3-gen-builtin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nacho/Documentos/LLVM/_build/CMakeFiles --progress-num=30 "Built target course3-gen-builtin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nacho/Documentos/LLVM/_build/CMakeFiles --progress-num=28 "Built target course3-gen-builtin"
 .PHONY : course3/ex/CMakeFiles/course3-gen-builtin.dir/all
 
 # Build rule for subdir invocation for target.
@@ -739,6 +739,150 @@ course3/ex/test/clean:
 .PHONY : course3/ex/test/clean
 
 #=============================================================================
+# Directory level rules for directory course5
+
+# Recursive "all" directory target.
+course5/all: course5/ex/all
+
+.PHONY : course5/all
+
+# Recursive "preinstall" directory target.
+course5/preinstall: course5/ex/preinstall
+
+.PHONY : course5/preinstall
+
+# Recursive "clean" directory target.
+course5/clean: course5/ex/clean
+
+.PHONY : course5/clean
+
+#=============================================================================
+# Directory level rules for directory course5/ex
+
+# Recursive "all" directory target.
+course5/ex/all: course5/ex/CMakeFiles/WhiteboxMe.dir/all
+course5/ex/all: course5/ex/test/all
+
+.PHONY : course5/ex/all
+
+# Recursive "preinstall" directory target.
+course5/ex/preinstall: course5/ex/test/preinstall
+
+.PHONY : course5/ex/preinstall
+
+# Recursive "clean" directory target.
+course5/ex/clean: course5/ex/CMakeFiles/install-WhiteboxMe.dir/clean
+course5/ex/clean: course5/ex/CMakeFiles/WhiteboxMe.dir/clean
+course5/ex/clean: course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/clean
+course5/ex/clean: course5/ex/test/clean
+
+.PHONY : course5/ex/clean
+
+#=============================================================================
+# Target rules for target course5/ex/CMakeFiles/install-WhiteboxMe.dir
+
+# All Build rule for target.
+course5/ex/CMakeFiles/install-WhiteboxMe.dir/all: course5/ex/CMakeFiles/WhiteboxMe.dir/all
+	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe.dir/depend
+	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nacho/Documentos/LLVM/_build/CMakeFiles --progress-num= "Built target install-WhiteboxMe"
+.PHONY : course5/ex/CMakeFiles/install-WhiteboxMe.dir/all
+
+# Build rule for subdir invocation for target.
+course5/ex/CMakeFiles/install-WhiteboxMe.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 course5/ex/CMakeFiles/install-WhiteboxMe.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 0
+.PHONY : course5/ex/CMakeFiles/install-WhiteboxMe.dir/rule
+
+# Convenience name for target.
+install-WhiteboxMe: course5/ex/CMakeFiles/install-WhiteboxMe.dir/rule
+
+.PHONY : install-WhiteboxMe
+
+# clean rule for target.
+course5/ex/CMakeFiles/install-WhiteboxMe.dir/clean:
+	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe.dir/clean
+.PHONY : course5/ex/CMakeFiles/install-WhiteboxMe.dir/clean
+
+#=============================================================================
+# Target rules for target course5/ex/CMakeFiles/WhiteboxMe.dir
+
+# All Build rule for target.
+course5/ex/CMakeFiles/WhiteboxMe.dir/all:
+	$(MAKE) -f course5/ex/CMakeFiles/WhiteboxMe.dir/build.make course5/ex/CMakeFiles/WhiteboxMe.dir/depend
+	$(MAKE) -f course5/ex/CMakeFiles/WhiteboxMe.dir/build.make course5/ex/CMakeFiles/WhiteboxMe.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nacho/Documentos/LLVM/_build/CMakeFiles --progress-num=26,27 "Built target WhiteboxMe"
+.PHONY : course5/ex/CMakeFiles/WhiteboxMe.dir/all
+
+# Include target in all.
+all: course5/ex/CMakeFiles/WhiteboxMe.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+course5/ex/CMakeFiles/WhiteboxMe.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 course5/ex/CMakeFiles/WhiteboxMe.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 0
+.PHONY : course5/ex/CMakeFiles/WhiteboxMe.dir/rule
+
+# Convenience name for target.
+WhiteboxMe: course5/ex/CMakeFiles/WhiteboxMe.dir/rule
+
+.PHONY : WhiteboxMe
+
+# clean rule for target.
+course5/ex/CMakeFiles/WhiteboxMe.dir/clean:
+	$(MAKE) -f course5/ex/CMakeFiles/WhiteboxMe.dir/build.make course5/ex/CMakeFiles/WhiteboxMe.dir/clean
+.PHONY : course5/ex/CMakeFiles/WhiteboxMe.dir/clean
+
+#=============================================================================
+# Target rules for target course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir
+
+# All Build rule for target.
+course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/all: course5/ex/CMakeFiles/WhiteboxMe.dir/all
+	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/depend
+	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nacho/Documentos/LLVM/_build/CMakeFiles --progress-num= "Built target install-WhiteboxMe-stripped"
+.PHONY : course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/all
+
+# Build rule for subdir invocation for target.
+course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 0
+.PHONY : course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/rule
+
+# Convenience name for target.
+install-WhiteboxMe-stripped: course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/rule
+
+.PHONY : install-WhiteboxMe-stripped
+
+# clean rule for target.
+course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/clean:
+	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/clean
+.PHONY : course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/clean
+
+#=============================================================================
+# Directory level rules for directory course5/ex/test
+
+# Recursive "all" directory target.
+course5/ex/test/all:
+
+.PHONY : course5/ex/test/all
+
+# Recursive "preinstall" directory target.
+course5/ex/test/preinstall:
+
+.PHONY : course5/ex/test/preinstall
+
+# Recursive "clean" directory target.
+course5/ex/test/clean:
+
+.PHONY : course5/ex/test/clean
+
+#=============================================================================
 # Directory level rules for directory course4
 
 # Recursive "all" directory target.
@@ -762,13 +906,11 @@ course4/clean: course4/ex/clean
 # Recursive "all" directory target.
 course4/ex/all: course4/ex/CMakeFiles/Function2Z3.dir/all
 course4/ex/all: course4/ex/test/all
-course4/ex/all: course4/ex/trace2z3/all
 
 .PHONY : course4/ex/all
 
 # Recursive "preinstall" directory target.
 course4/ex/preinstall: course4/ex/test/preinstall
-course4/ex/preinstall: course4/ex/trace2z3/preinstall
 
 .PHONY : course4/ex/preinstall
 
@@ -777,7 +919,6 @@ course4/ex/clean: course4/ex/CMakeFiles/install-Function2Z3.dir/clean
 course4/ex/clean: course4/ex/CMakeFiles/Function2Z3.dir/clean
 course4/ex/clean: course4/ex/CMakeFiles/install-Function2Z3-stripped.dir/clean
 course4/ex/clean: course4/ex/test/clean
-course4/ex/clean: course4/ex/trace2z3/clean
 
 .PHONY : course4/ex/clean
 
@@ -884,200 +1025,6 @@ course4/ex/test/preinstall:
 course4/ex/test/clean:
 
 .PHONY : course4/ex/test/clean
-
-#=============================================================================
-# Directory level rules for directory course4/ex/trace2z3
-
-# Recursive "all" directory target.
-course4/ex/trace2z3/all: course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/all
-
-.PHONY : course4/ex/trace2z3/all
-
-# Recursive "preinstall" directory target.
-course4/ex/trace2z3/preinstall:
-
-.PHONY : course4/ex/trace2z3/preinstall
-
-# Recursive "clean" directory target.
-course4/ex/trace2z3/clean: course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/clean
-
-.PHONY : course4/ex/trace2z3/clean
-
-#=============================================================================
-# Target rules for target course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir
-
-# All Build rule for target.
-course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/all:
-	$(MAKE) -f course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/build.make course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/depend
-	$(MAKE) -f course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/build.make course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nacho/Documentos/LLVM/_build/CMakeFiles --progress-num=26,27 "Built target Trace2Z3"
-.PHONY : course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/all
-
-# Include target in all.
-all: course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 0
-.PHONY : course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/rule
-
-# Convenience name for target.
-Trace2Z3: course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/rule
-
-.PHONY : Trace2Z3
-
-# clean rule for target.
-course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/clean:
-	$(MAKE) -f course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/build.make course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/clean
-.PHONY : course4/ex/trace2z3/CMakeFiles/Trace2Z3.dir/clean
-
-#=============================================================================
-# Directory level rules for directory course5
-
-# Recursive "all" directory target.
-course5/all: course5/ex/all
-
-.PHONY : course5/all
-
-# Recursive "preinstall" directory target.
-course5/preinstall: course5/ex/preinstall
-
-.PHONY : course5/preinstall
-
-# Recursive "clean" directory target.
-course5/clean: course5/ex/clean
-
-.PHONY : course5/clean
-
-#=============================================================================
-# Directory level rules for directory course5/ex
-
-# Recursive "all" directory target.
-course5/ex/all: course5/ex/CMakeFiles/WhiteboxMe.dir/all
-course5/ex/all: course5/ex/test/all
-
-.PHONY : course5/ex/all
-
-# Recursive "preinstall" directory target.
-course5/ex/preinstall: course5/ex/test/preinstall
-
-.PHONY : course5/ex/preinstall
-
-# Recursive "clean" directory target.
-course5/ex/clean: course5/ex/CMakeFiles/install-WhiteboxMe.dir/clean
-course5/ex/clean: course5/ex/CMakeFiles/WhiteboxMe.dir/clean
-course5/ex/clean: course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/clean
-course5/ex/clean: course5/ex/test/clean
-
-.PHONY : course5/ex/clean
-
-#=============================================================================
-# Target rules for target course5/ex/CMakeFiles/install-WhiteboxMe.dir
-
-# All Build rule for target.
-course5/ex/CMakeFiles/install-WhiteboxMe.dir/all: course5/ex/CMakeFiles/WhiteboxMe.dir/all
-	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe.dir/depend
-	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nacho/Documentos/LLVM/_build/CMakeFiles --progress-num= "Built target install-WhiteboxMe"
-.PHONY : course5/ex/CMakeFiles/install-WhiteboxMe.dir/all
-
-# Build rule for subdir invocation for target.
-course5/ex/CMakeFiles/install-WhiteboxMe.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 course5/ex/CMakeFiles/install-WhiteboxMe.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 0
-.PHONY : course5/ex/CMakeFiles/install-WhiteboxMe.dir/rule
-
-# Convenience name for target.
-install-WhiteboxMe: course5/ex/CMakeFiles/install-WhiteboxMe.dir/rule
-
-.PHONY : install-WhiteboxMe
-
-# clean rule for target.
-course5/ex/CMakeFiles/install-WhiteboxMe.dir/clean:
-	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe.dir/clean
-.PHONY : course5/ex/CMakeFiles/install-WhiteboxMe.dir/clean
-
-#=============================================================================
-# Target rules for target course5/ex/CMakeFiles/WhiteboxMe.dir
-
-# All Build rule for target.
-course5/ex/CMakeFiles/WhiteboxMe.dir/all:
-	$(MAKE) -f course5/ex/CMakeFiles/WhiteboxMe.dir/build.make course5/ex/CMakeFiles/WhiteboxMe.dir/depend
-	$(MAKE) -f course5/ex/CMakeFiles/WhiteboxMe.dir/build.make course5/ex/CMakeFiles/WhiteboxMe.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nacho/Documentos/LLVM/_build/CMakeFiles --progress-num=28,29 "Built target WhiteboxMe"
-.PHONY : course5/ex/CMakeFiles/WhiteboxMe.dir/all
-
-# Include target in all.
-all: course5/ex/CMakeFiles/WhiteboxMe.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-course5/ex/CMakeFiles/WhiteboxMe.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 course5/ex/CMakeFiles/WhiteboxMe.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 0
-.PHONY : course5/ex/CMakeFiles/WhiteboxMe.dir/rule
-
-# Convenience name for target.
-WhiteboxMe: course5/ex/CMakeFiles/WhiteboxMe.dir/rule
-
-.PHONY : WhiteboxMe
-
-# clean rule for target.
-course5/ex/CMakeFiles/WhiteboxMe.dir/clean:
-	$(MAKE) -f course5/ex/CMakeFiles/WhiteboxMe.dir/build.make course5/ex/CMakeFiles/WhiteboxMe.dir/clean
-.PHONY : course5/ex/CMakeFiles/WhiteboxMe.dir/clean
-
-#=============================================================================
-# Target rules for target course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir
-
-# All Build rule for target.
-course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/all: course5/ex/CMakeFiles/WhiteboxMe.dir/all
-	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/depend
-	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nacho/Documentos/LLVM/_build/CMakeFiles --progress-num= "Built target install-WhiteboxMe-stripped"
-.PHONY : course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/all
-
-# Build rule for subdir invocation for target.
-course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nacho/Documentos/LLVM/_build/CMakeFiles 0
-.PHONY : course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/rule
-
-# Convenience name for target.
-install-WhiteboxMe-stripped: course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/rule
-
-.PHONY : install-WhiteboxMe-stripped
-
-# clean rule for target.
-course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/clean:
-	$(MAKE) -f course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/build.make course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/clean
-.PHONY : course5/ex/CMakeFiles/install-WhiteboxMe-stripped.dir/clean
-
-#=============================================================================
-# Directory level rules for directory course5/ex/test
-
-# Recursive "all" directory target.
-course5/ex/test/all:
-
-.PHONY : course5/ex/test/all
-
-# Recursive "preinstall" directory target.
-course5/ex/test/preinstall:
-
-.PHONY : course5/ex/test/preinstall
-
-# Recursive "clean" directory target.
-course5/ex/test/clean:
-
-.PHONY : course5/ex/test/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
