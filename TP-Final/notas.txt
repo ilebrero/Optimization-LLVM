@@ -1,0 +1,5 @@
+Hay que buscar la raiz de un polinomio que se calcula internamente.
+
+El programa devuelve 0 y avisa que se encontro la raiz si el input es la raiz.
+
+Solucion: En Ghidra se puede hacer dessassembly del ejecutable y mirar la constante contra la que se compara en el caso de haber exito
